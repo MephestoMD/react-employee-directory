@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { formatDate } from "../utils/formatDate";
 
 class Table extends Component {
   state = {};
@@ -7,7 +8,7 @@ class Table extends Component {
     const { employees } = this.props;
     console.log(employees);
     return (
-      <table className="table">
+      <table className="table table-hover ">
         <thead>
           <tr>
             <th>Photo</th>
@@ -30,7 +31,7 @@ class Table extends Component {
               <td>{emp.name.first + " " + emp.name.last}</td>
               <td>{emp.phone}</td>
               <td>{emp.email}</td>
-              <td>{emp.dob.date}</td>
+              <td>{formatDate(emp.dob.date)}</td>
               <td>
                 {emp.location.city}, {emp.location.state}
               </td>
