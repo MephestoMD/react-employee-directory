@@ -1,23 +1,20 @@
 import React, { Component } from "react";
+import TableHeader from "./tableHeaders";
 import { formatDate } from "../utils/formatDate";
 
 class Table extends Component {
-  state = {};
+  headers = ["Photo", "Name", "Phone #", "Email", "DOB", "Location"];
 
   render() {
-    const { employees } = this.props;
-    console.log(employees);
+    const { employees, sortedColumn } = this.props;
     return (
       <table className="table table-hover ">
         <thead>
-          <tr>
-            <th>Photo</th>
-            <th>Name</th>
-            <th>Phone #</th>
-            <th>Email</th>
-            <th>DOB</th>
-            <th>Location</th>
-          </tr>
+          <TableHeader
+            headers={this.headers}
+            sortedColumn={sortedColumn}
+            onSort={this.onSort}
+          />
         </thead>
         <tbody>
           {employees.map((emp) => (

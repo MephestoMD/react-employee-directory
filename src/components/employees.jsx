@@ -5,6 +5,7 @@ import API from "../utils/API";
 class Employees extends Component {
   state = {
     employees: [],
+    sortedColumn: { header: "Name", order: "asc" },
   };
 
   componentDidMount() {
@@ -13,10 +14,10 @@ class Employees extends Component {
     );
   }
   render() {
-    const employees = this.state.employees;
+    const { employees, sortedColumn } = this.state;
     return (
       <>
-        <Table employees={employees} />
+        <Table sortedColumn={sortedColumn} employees={employees} />
       </>
     );
   }
