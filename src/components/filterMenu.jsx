@@ -11,8 +11,8 @@ const FilterMenu = ({ selectedFilter, filters, onFilterSelect }) => {
             onClick={() => onFilterSelect(filter)}
             className={
               selectedFilter === filter
-                ? "list-group-item clickable active"
-                : "list-group-item clickable"
+                ? "list-group-item list-group-item-action list-group-item-light clickable active"
+                : "list-group-item list-group-item-action list-group-item-light clickable"
             }
           >
             {filter}
