@@ -3,17 +3,24 @@ import TableHeader from "./tableHeaders";
 import { formatDate } from "../utils/formatDate";
 
 class Table extends Component {
-  headers = ["Photo", "Name", "Phone #", "Email", "DOB", "Location"];
+  headers = [
+    { path: "picture.thumbnail", label: "Photo" },
+    { path: "name.first", label: "Name" },
+    { path: "phone", label: "Phone #" },
+    { path: "email", label: "Email" },
+    { path: "dob.date", label: "DOB" },
+    { path: "location.city", label: "Location" },
+  ];
 
   render() {
-    const { employees, sortedColumn } = this.props;
+    const { employees, sortedColumn, onSort } = this.props;
     return (
       <table className="table table-hover ">
         <thead>
           <TableHeader
             headers={this.headers}
             sortedColumn={sortedColumn}
-            onSort={this.onSort}
+            onSort={onSort}
           />
         </thead>
         <tbody>
