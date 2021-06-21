@@ -15,12 +15,12 @@ class Table extends Component {
             <th>Phone #</th>
             <th>Email</th>
             <th>DOB</th>
-            <th>Country</th>
+            <th>Location</th>
           </tr>
         </thead>
         <tbody>
           {employees.map((emp) => (
-            <tr>
+            <tr key={emp.dob.date}>
               <td>
                 <img
                   src={emp.picture.thumbnail}
@@ -28,10 +28,12 @@ class Table extends Component {
                 />
               </td>
               <td>{emp.name.first + " " + emp.name.last}</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>{emp.phone}</td>
+              <td>{emp.email}</td>
+              <td>{emp.dob.date}</td>
+              <td>
+                {emp.location.city}, {emp.location.state}
+              </td>
             </tr>
           ))}
         </tbody>
