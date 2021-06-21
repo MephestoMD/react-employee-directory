@@ -9,15 +9,14 @@ class Employees extends Component {
 
   componentDidMount() {
     API.getEmployees().then((res) =>
-      this.setState({ employees: res.data.results }).catch((err) =>
-        console.log(err.message)
-      )
+      this.setState({ employees: res.data.results })
     );
   }
   render() {
+    const employees = this.state.employees;
     return (
       <>
-        <Table />
+        <Table employees={employees} />
       </>
     );
   }
